@@ -3,7 +3,6 @@
 #include "USBMSC.h"
 
 #include "SDCardArduino.h"
-#include "SDCardMultiSector.h"
 #include "SDCardLazyWrite.h"
 
 #define BOOT_BUTTON 0
