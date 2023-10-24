@@ -1,8 +1,6 @@
 #include <Arduino.h>
 #include "USB.h"
 #include "USBMSC.h"
-
-#include "SDCardArduino.h"
 #include "SDCardLazyWrite.h"
 
 #define BOOT_BUTTON 0
