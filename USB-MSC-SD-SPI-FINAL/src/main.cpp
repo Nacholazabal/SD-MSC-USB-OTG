@@ -15,20 +15,17 @@ SDCard *card;
 
 static int32_t onWrite(uint32_t lba, uint32_t offset, uint8_t *buffer, uint32_t bufsize)
 {
-  // Serial.printf("Writing %d bytes to %d at offset\n", bufsize, lba, offset);
-  // this writes a complete sector so we should return sector size on success
+  // This writes a complete sector so we should return sector size on success
   if (card->writeSectors(buffer, lba, bufsize / card->getSectorSize()))
   {
     return bufsize;
   }
-  return bufsize;
-  // return -1;
+  return -1;
 }
 
 static int32_t onRead(uint32_t lba, uint32_t offset, void *buffer, uint32_t bufsize)
 {
-  // Serial.printf("Reading %d bytes from %d at offset %d\n", bufsize, lba, offset);
-  // this reads a complete sector so we should return sector size on success
+  // This reads a complete sector so we should return sector size on success
   if (card->readSectors((uint8_t *)buffer, lba, bufsize / card->getSectorSize()))
   {
     return bufsize;
@@ -66,18 +63,10 @@ void setup()
   msc.begin(card->getSectorCount(), card->getSectorSize());
   Serial.begin(115200);
   USB.begin();
-
 }
 
 void loop()
 {
   // put your main code here, to run repeatedly:
   delay(200);
-  // if (isBootButtonClicked())
-  // {
-  //     if (MySD.cardType() == CARD_NONE)
-  //     {
-  //         log("No SD card");
-  //     }
-  // }
 }
